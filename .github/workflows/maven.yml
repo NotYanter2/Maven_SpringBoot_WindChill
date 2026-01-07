@@ -1,4 +1,4 @@
-name: Maven Build (Matrix Java)
+name: FatJar bauen
 
 on:
   push:
@@ -44,3 +44,4 @@ jobs:
           path: target/windchill-*-SNAPSHOT.jar
           if-no-files-found: error
           retention-days: 3
+

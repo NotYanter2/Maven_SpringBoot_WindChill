@@ -1,4 +1,3 @@
-# trigger workflow
 name: Maven Build (Matrix Java)
 
 on:
@@ -6,6 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -31,9 +31,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
 
-      - name: Upload Artifact (ZIP)
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: windchill-java-${{ matrix.java }}
           path: target/*.jar
-
